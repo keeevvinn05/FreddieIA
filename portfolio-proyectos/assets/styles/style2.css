@@ -1,0 +1,373 @@
+/* Definición de variables globales de colores */
+:root {
+  --lighting-color: #60c8eb;    /* Color principal claro (azul turquesa) */
+  --dark-color: #050b2e;        /* Color secundario oscuro (azul marino) */
+  --darker-color: #f08bec;      /* Variante aún más oscura del color marino */
+  --secondary-color: #fef608;   /* Color de acento (amarillo brillante) */
+}
+
+/* Aplica a todos los elementos */
+* {
+  margin: 0;                    /* Elimina margen por defecto */
+  padding: 0;                   /* Elimina padding por defecto */
+  box-sizing: border-box;       /* Incluye borde y padding en el ancho/alto total */
+  font-family: "Poppins", sans-serif; /* Tipografía base para toda la web */
+}
+
+/* Ajuste base del tamaño de fuente en HTML */
+html {
+  font-size: 62.5%;             /* Hace que 1rem = 10px (62.5% de 16px) */
+}
+
+/* Estilos comunes a body y html */
+body,
+html {
+  font-family: "Poppins", sans-serif; /* Reafirma la tipografía */
+  font-weight: 300;            /* Grosor de fuente ligero */
+  line-height: 1.4;            /* Interlineado para mejorar lectura */
+  scroll-behavior: smooth;     /* Scroll suave para enlaces internos */
+  color: rgb(170, 50, 179);                /* Color de texto por defecto blanco */
+}
+
+/* Ajuste específico del body */
+body {
+  font-size: 1.4rem;           /* Tamaño de texto base: 14px */
+}
+
+/* Contenedor centralizado */
+.container {
+  max-width: 1300px;           /* Ancho máximo del contenedor */
+  margin: 0 auto;              /* Centra horizontalmente */
+}
+
+/* Estilos para enlaces */
+a {
+  text-decoration: none;       /* Quita subrayado */
+  color: rgb(81, 155, 153);                /* Color de enlace blanco */
+}
+
+/* Estilos para listas */
+ul {
+  list-style: none;            /* Quita viñetas */
+}
+
+/* Encabezado sticky */
+header {
+  position: sticky;            /* Se queda fijo al hacer scroll */
+  top: 0;                      /* Se ancla arriba de la ventana */
+  z-index: 100;                /* Por encima de otros elementos */
+  background-color: #de90dc; /* Fondo con variable de color */
+}
+
+/* Espaciado interno y distribución del nav */
+nav {
+  display: flex;               /* Flexbox para alinear elementos */
+  justify-content: space-between; /* Separar logo y menú */
+  align-items: center;         /* Centrar verticalmente */
+  padding: 1rem;               /* Padding interior de 10px */
+}
+
+/* Lista horizontal en nav */
+nav ul {
+  display: flex;               /* Flexbox en la lista */
+  gap: 1rem;                   /* Espacio entre ítems */
+}
+
+/* Ítems del menú */
+nav li {
+  font-size: 1.8rem;           /* Tamaño de texto: 18px */
+  border-bottom: 0.4rem transparent solid; /* Línea inferior transparente */
+  transition: 0.3s ease-in-out; /* Transición suave en hover */
+}
+
+/* Hover en ítems del menú */
+nav li:hover {
+  border-bottom: 0.4rem var(--darker-color) solid; /* Línea inferior amarilla */
+}
+
+/* Logo */
+.logo {
+  font-size: 2rem;             /* Tamaño de texto: 20px */
+  font-weight: 700;            /* Fuente negrita */
+}
+
+/* Sección hero */
+#hero {
+  background-color: #010c31; /* Fondo azul marino */
+  padding: 4rem 0;             /* Padding vertical de 40px */
+  border-bottom: 4px solid var(--lighting-color); /* Borde inferior turquesa */
+  max-height: 100vh;           /* Altura máxima igual al viewport */
+}
+
+/* Contenedor interno del hero */
+#hero .container {
+  display: flex;               /* Flexbox para imagen y texto */
+  justify-content: space-around; /* Separación uniforme */
+  align-items: center;         /* Centrados verticalmente */
+}
+
+/* Bloque de contenido del hero */
+.hero_content {
+  display: grid;               /* Grid para centrar fácilmente */
+  place-items: center;         /* Centra horizontal y verticalmente */
+}
+
+/* Bloque de imagen del hero */
+.hero_image {
+  max-width: 30%;              /* Ancho máximo 45% del contenedor */
+  overflow: hidden;            /* Oculta lo que sobresalga */
+}
+
+/* Estilo de la imagen */
+.hero_image img {
+  max-width: 200px;
+  width: 100%;                 /* Ancho completo del contenedor */
+  height: auto;                /* Altura proporcional */
+  display: block;              /* Elimina espacio inferior típico de imgs inline */
+  border-radius: 0.5rem;       /* Bordes redondeados de 5px */
+  object-fit: cover;           /* Recorta/ajusta la imagen cubriendo el contenedor */
+}
+
+/* Título principal h1 */
+#hero h1 {
+  font-size: 4rem;             /* Tamaño de texto: 30px */
+  font-weight: bold;           /* Negrita */
+}
+
+/* Texto “hi” grande */
+.hi_text {
+  font-size: 6rem;             /* Tamaño de texto: 60px */
+  font-weight: bold;           /* Negrita */
+  color: var(--secondary-color); /* Amarillo */
+}
+
+/* Texto de nombre */
+.name_text {
+  font-size: 6rem;             /* Tamaño de texto: 50px */
+}
+
+/* Subtítulo animado */
+#hero h2 {
+  font-size: 4rem;             /* Tamaño de texto: 40px */
+  font-weight: bold;           /* Negrita */
+  overflow: hidden;            /* Oculta el texto no “escrito” */
+  border-right: 0.15em solid rgb(246, 255, 0); /* Cursor de máquina de escribir */
+  white-space: nowrap;         /* Evita salto de línea */
+  margin: 0 auto;              /* Centra horizontalmente */
+ animation: typing 5s steps(40,end) infinite alternate, blink-caret 0.75s step-end infinite;
+
+                               /* Animación de escribir + parpadeo */
+}
+
+/* Animación typing */
+@keyframes typing {
+  from { width: 0; }           /* Empieza con ancho 0 */
+  to   { width: 100%; }        /* Termina mostrando todo el texto */
+}
+
+/* Animación caret parpadeante */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50%      { border-color: rgb(250, 216, 24); }
+}
+
+/* Sección de proyectos */
+#project {
+  background-color: #de90dc; /* Fondo azul muy oscuro */
+  padding-bottom: 4rem;         /* Padding inferior de 40px */
+}
+
+/* Título de proyectos */
+#project h2 {
+  font-size: 6rem;             /* Tamaño de texto: 60px */
+  text-align: center;          /* Centra el texto */
+  padding: 2rem 0;             /* Padding vertical de 20px */
+}
+
+/* Contenedor grid de cards */
+.project_container {
+  display: grid;               /* Usa CSS Grid */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                               /* Columnas fluidas de mínimo 320px */
+  gap: 2rem;                   /* Espacio de 20px entre items */
+}
+
+/* Cada ítem del grid */
+.grid_item {
+  display: grid;               /* Grid para centrar */
+  place-items: center;         /* Centro completo */
+}
+
+/* Estilo base de cada card */
+.card {
+  width: 100%;                 /* ancho completo dentro del grid_item */
+  max-width: 320px;            /* ancho máximo 320px */
+  display: flex;               /* flex para disposición vertical */
+  flex-direction: column;      /* apilar verticalmente */
+  border-radius: 0.5rem;       /* bordes redondeados 5px */
+  overflow: hidden;            /* recorta lo que sobresalga */
+  transition: 0.2s ease-in-out; /* transición suave al hover */
+}
+
+/* Hover en card: aumenta tamaño */
+.card:hover {
+  transform: scale(1.05);      /* Escala a 105% */
+}
+
+/* Hover en imagen de la card */
+.card:hover img {
+  transform: scale(1.05);      /* Escala imagen */
+  opacity: 0.8;                /* Ligera transparencia */
+  transition: 0.3s ease-in-out;/* transición propia */
+}
+
+/* Contenido interior de la card */
+.card_content {
+  padding: 2rem;               /* Padding interno 20px */
+  position: relative;          /* Posicionamiento para top */
+  top: -6.5rem;                /* Sitúa el bloque sobre la imagen */
+  margin-bottom: -6.5rem;      /* Ajusta espacio inferior */
+  transition: 0.5s ease-in-out;/* transición al hover */
+  transform: translateY(100px);/* Empieza desplazado hacia abajo */
+}
+
+/* Hover en contenido: lo muestra */
+.card:hover .card_content {
+  background: rgb(204, 42, 42);           /* Fondo blanco */
+  color: #fef608;    /* Texto azul oscuro */
+  transform: translateY(0);    /* Vuelve a su posición original */
+}
+
+/* Título dentro de la card */
+.card_content h3 {
+  text-align: center;          /* Centra el texto */
+}
+
+/* Regla base para las miniaturas */
+.card img {
+  width: 100%;                 /* ancho completo */
+  height: 360px;               /* altura fija 360px */
+  object-fit: cover;           /* recorta para cubrir el contenedor */
+  display: block;              /* elimina espacios extra */
+  aspect-ratio: 3/4;           /* relación de aspecto 3:4 */
+}
+
+
+/* Sección de contacto */
+#contact {
+  background-color: aqua; /* Fondo azul marino */
+}
+
+/* Título de contacto */
+#contact h2 {
+  font-size: 6rem;             /* Tamaño de texto: 60px */
+  text-align: center;          /* Centra el texto */
+  margin: 1rem 0;              /* Margen vertical de 10px */
+}
+
+/* Contenedor interno de contacto */
+#contact .container {
+  height: 90vh;                /* Altura 90% del viewport */
+  display: flex;               /* Flexbox vertical */
+  flex-direction: column;      /* Apilar elementos */
+  gap: 4rem;                   /* Espacio de 40px entre bloques */
+  justify-content: center;     /* Centrar verticalmente */
+}
+
+/* Grid para maneras de contacto (iconos + texto) */
+.top_contact {
+  max-width: 800px;            /* Ancho máximo 800px */
+  display: grid;               /* CSS Grid */
+  margin: 0 auto;              /* Centrado horizontal */
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                               /* Columnas fluidas de mínimo 80px */
+  gap: 1rem;                   /* Espacio de 10px */
+}
+
+/* Cada forma de contacto */
+.contact_way {
+  display: flex;               /* Flexbox */
+  gap: 1rem;                   /* Espacio entre icono y texto */
+  align-items: center;         /* Centrados verticalmente */
+}
+
+/* Iconos de contacto */
+.contact_way i {
+  font-size: 3rem;             /* Tamaño del icono: 30px */
+}
+
+/* Texto dentro de cada forma de contacto */
+.contact_way h3 {
+  font-size: 3rem;             /* Tamaño de texto: 30px */
+  font-weight: bold;           /* Negrita */
+}
+
+/* Grid para enlaces o elementos al pie del formulario */
+.bottom_contact {
+  max-width: 400px;            /* Ancho máximo 400px */
+  display: grid;               /* CSS Grid */
+  margin: 0 auto;              /* Centrado */
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                               /* Columnas fluidas de mínimo 80px */
+  gap: 1rem;                   /* Espacio de 10px */
+}
+
+/* Pie de página */
+footer {
+  background-color: black; /* Fondo azul muy oscuro */
+  padding: 2rem;               /* Padding 20px */
+  color: rgb(90, 218, 214);                /* Texto blanco */
+  font-size: 1.6rem;           /* Tamaño de texto: 16px */
+  text-align: center;          /* Centrado */
+}
+
+
+
+/* Ajustes para pantallas ≤500px */
+@media (max-width: 500px) {
+  html {
+    font-size: 25%;            /* Base rem aún más pequeña */
+  }
+  #hero .container {
+    flex-direction: column;
+  }
+  .hero_image {
+    display: grid;
+    place-items: center;
+  }
+  #contact .container {
+    height: 50vh;              /* Ajusta altura a 50% del viewport */
+  }
+  .card img {
+    height: 220px;             /* Altura más razonable en móvil */
+  }
+}
+
+/* Ajustes para pantallas ≤900px */
+@media (max-width: 900px) {
+  html {
+    font-size: 40%;            /* Reduce base rem a 40% */
+  }
+  #hero .container {
+    flex-direction: column;    /* Pila imagen y texto vertical */
+  }
+  .hero_image {
+    display: grid;             /* Grid para centrar imagen */
+    place-items: center;
+  }
+  #contact .container {
+    height: 70vh;              /* Ajusta altura a 70% del viewport */
+  }
+  .card img {
+    height: 300px;             /* Reduce altura de miniaturas */
+  }
+}
+
+/* Ajustes para pantallas ≥1000px */
+@media (min-width: 1000px) {
+  .top_contact {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                               /* Columnas fluidas de mínimo 150px */
+    gap: 2rem;                 /* Espacio entre columnas */
+  }
+}

@@ -1,0 +1,221 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*esto hace que el ancho y el alto incluyan tanto padding y border*/
+}
+
+
+/*layout por grid, estructura de tu pagina*/
+body{
+  min-height: 100vh; /*altura minima del alto de la ventana*/
+  display: grid; /*convierte el body en un contenedor grid*/
+  grid-template-columns: 15% 1fr; /*define dos columnas, una de el 15% y otra de el resto sobrante*/
+  grid-template-rows: 60px 1fr 30px; /*define tres filas, header 60/ main flexible y footer 30%*/
+  grid-template-areas: 
+  "zh zh"
+  "znav gallery"
+  "zf zf"; 
+
+  background-color:rgb(100, 205, 189);
+  color: rgb(194, 84, 245);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+
+header{
+grid-area: zh;
+background: rgb(228, 235, 96);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.8rem;
+}
+
+
+nav{
+grid-area: znav;
+max-width: 100%; /*no exceder el ancho de su contenedor padre*/
+background-color: rgb(217, 243, 122);
+padding: 1rem; /*padding es el relleno interno*/
+overflow-wrap: break-word; /*permite que el texto se divida si es muy largo*/
+}
+
+
+nav ul{
+
+  list-style: none; /*elimina la viñeta*/
+}
+
+
+nav li + li{
+margin-top: 1rem; /*añada espacio superior a cada <li> excepto el primero*/
+}
+
+
+.nav-button{
+display: inline-block; /*para poder aplicar el padding y borde*/
+padding: 0.5rem 1rem; /*relleno interno (0.5. arriba abajo y 1 rem izquierda y derecha*/
+background-color:rgb(178, 100, 246);
+color: blueviolet;
+text-decoration: none; /* sin subrrayado en los enlaces*/
+border-radius: 0.3rem; /*redondea los bordes*/
+transition: background 0.2s; /*transicion suave al cambiar el fondo*/
+}
+
+
+.nav-button:hover{
+background-color: rgb(95, 212, 183);
+}
+main{
+  padding: 2rem;
+}
+
+
+.gallery{
+display: grid; /*contenedor grid para miniaturas*/
+  gap: 2rem; /*el espacio entre filas y columnas*/
+  grid-auto-rows: auto; /*altura fija de 300px por cada fila*/
+  justify-content: center; /*centra el grid horizontalmente*/
+}
+
+
+/*miniaturas*/
+
+.thumb{
+  width: 100%; /*ancho al 100% del contenedor grid*/
+  height: 100%; /* altura 100% del del contebedor (300px) del contenedor grid*/
+  overflow: hidden; /* oculta lo que desborde du contenedor*/
+  border: 1px solid rgb(172, 39, 39);
+  border-radius: 0.5rem;
+  transition: 
+  border-radius o.4s ease, /*animacion de cambio de radio*/
+  transform 0.3s ease, /*animacion del escalado*/
+box-shadow 0.4s ease; /*animacion de la sombra*/
+}
+
+/* al pasar el raton*/
+.thumb:hover{
+border-radius: 1rem; /*aumentar el redondeo al pasar el raton*/
+transform: scale(1.05); /*escala un 5% para efecto zoom*/
+box-shadow: 0 0 15px rgb(6, 221, 13);
+}
+
+
+/*imagen dentro de la miniatura*/
+
+
+.thumb img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+
+.portada img{
+
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
+footer{
+  grid-area: zf;
+  background-color: rgb(247, 8, 8);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 1rem;
+  font-size: 0.9rem;
+}
+
+/*centrar imagen de portada*/
+
+.gallery-portada{
+display: flex; /*centrar facilmente*/
+justify-content: center;
+align-items: center;
+margin-top: 20px;
+}
+
+
+.gallery-portada img{
+max-width: 90%;
+height: auto;
+border-radius: 10px;
+border: 2px solid rgb(172, 39, 39);
+
+}
+
+
+/*media queries para ajustar a todas las pantallas*/
+/*pantallas hasta 600px*/
+
+@media (max-width: 600px){
+  body{
+grid-template-columns: 1fr; /*una sola columna*/
+grid-template-rows: 60px auto 1fr 30px;
+grid-template-areas: 
+"zh"
+"znav"
+"gallery"
+"zf";
+  }
+  nav ul{
+    list-style: none; /*sin viñetas*/
+    padding: 0; /*sin relleno*/
+    margin: 0; /*sin margenes*/
+    display: flex; /*flex horizontal*/
+    justify-content: center; /*centrar botones horizalmente*/
+    gap: 1rem; /*espacio entre botones*/
+    flex-wrap: wrap; /*permite salto de <li>*/
+
+  }
+
+  nav li + li{
+    margin-top: 0; /*quita el espacio superior (ahora son flex)*/
+
+  }
+  .gallery{
+    justify-content: center; /*centra la galeria*/
+    grid-template-columns: 1fr; /*1sola columna*/
+  }
+}
+
+/*pantallas entre 601px y 900px*/
+@media (min-width: 602px) and (max-width: 900px){
+  .gallery{
+    grid-template-columns: repeat(2, 1fr); /*dos columnas iguales*/
+    .nav-button{
+      padding: 0.1rem 0.3rem; /*menos padding para ajustar botones*/
+      font-size: 0.9rem; /*ligeramente mas pequeño*/
+    }
+
+  }
+} 
+
+@media (min-width: 901px) and (max-width: 1400px){
+  .gallery{
+    grid-template-columns: repeat(3, 1fr); /*dos columnas iguales*/
+    .nav-button{
+      padding: 0.1rem 0.3rem; /*menos padding para ajustar botones*/
+      font-size: 0.9rem; /*ligeramente mas pequeño*/
+    }
+
+  }
+}
+
+
+@media (min-width: 1401px){
+  .gallery{
+    grid-template-columns: repeat(4, 1fr); /*dos columnas iguales*/
+    .nav-button{
+      padding: 0.1rem 0.3rem; /*menos padding para ajustar botones*/
+      font-size: 0.9rem; /*ligeramente mas pequeño*/
+    }
+
+  }
+}

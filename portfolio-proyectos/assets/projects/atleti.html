@@ -1,0 +1,132 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Formulario de Registro</title>
+  </head>
+  <body>
+    <h1>Formulario de Registro</h1>
+    <p>Por favor, complete este formulario con la información requerida</p>
+
+    <!-- Formulario HTML con metodo POST (envio de datos) y destino (action) a un URL externa -->
+    <form action="#enlace de pagina de recepcion" method="post">
+      <!-- Grupo de campos relacionados: Datos personales -->
+      <fieldset>
+        <!-- for  id  = (deben coincidir) crea un vinculo label y el input 
+         Accesibilidad los lectores de pantalla pueden decirle al usuario que campo esta llenando
+         Usabilidad : al hacer click en label el navegador enfoca automaticamente al input -->
+
+        <!-- Campo de texto para el nombre -->
+
+        <label for="first-name">
+          Ingrese su nombre:
+          <input id="first-name" type="text" required name="first-name" />
+          <!--'required obliga a completar el campo'  -->
+        </label>
+
+        <!-- Campo de texto para el apellido -->
+        <label for="last-name">
+          Ingrese su apellido:
+          <input id="last-name" type="text" required name="last-name" />
+          <!--'required obliga a completar el campo'  -->
+        </label>
+       <!-- Fecha de nacimiento -->
+      <label for="fecha">Fecha de nacimiento:</label><br />
+      <input type="date" id="fecha" name="fecha" required /><br /><br />
+ </label>
+
+        <!-- Campo para introducir un correo electronico -->
+        <label for="email">
+          Ingrese su Correo Electrónico:
+          <input id="email" type="email" required name="email" />
+          <!--'type="email" valida que el formato sea un correo'  -->
+        </label>
+
+        <!-- Campo para introducir una contraseña nueva -->
+        <label for="new-password">
+          Cree una Nueva Contraseña:
+          <input
+            id="new-password"
+            type="password"
+            pattern="[a-z1-9]{8,}"
+            required
+            name="password"
+          />
+          <!-- pattern : valida que al menos tenga 8 caracteres a - z y 0-5 -->
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <!-- Radio button para la cuenta personal -->
+        <label for="personal-account">
+          <input
+            type="radio"
+            name="account-type"
+            id="personal-account"
+            class="inline"
+          />
+          Cuenta Personal
+        </label>
+
+        <!-- Radio button para la cuenta personal -->
+        <label for="business-account">
+          <input
+            type="radio"
+            name="account-type"
+            id="business-account"
+            class="inline"
+          />
+          Cuenta Empresarial
+        </label>
+
+        <!-- Casilla de verificacion para aceptar terminos -->
+         <label for="terms-and-conditions">
+            <input type="checkbox" id="terms-and-conditions" name="terms" class="inline">
+            Acepto los <a href="#enlace de terminos" target="_blank"> términos y condiciones</a>
+         </label>
+      </fieldset>
+
+      <!-- Tercer grupo: información adicional  -->
+
+      <fieldset>
+        <!-- Subir archivo de imagen -->
+         <label for="profile-picture">
+            <input type="file" id="profile-picture" name="file">
+            Subir una foto de perfil
+         </label>
+
+         <!-- Edad del usuario, con valores entre 13 y 120 -->
+          <label for="age">
+            <input type="number" min="13" max="120" id="age" name="age">
+            Ingresa tu edad (años):
+          </label>
+        
+        <!-- Lista desplegable con opciones de referencia -->
+         <label for="referrer">
+            ¿Como te enteraste de noostros?
+            <select id="referrer" name="referred">
+            <option value="">(Selecciona uno)</option>
+            <option value="1">Canal de Youtube</option>
+            <option value="2">Foros en la Web</option>
+            <option value="3">Amigos y familiares</option>
+            <option value="4">Videos en TikTok</option>
+            </select>
+         </label> 
+
+         <!-- Area de Texto para una breve biografia -->
+          <label for="bio">
+            Proporciona una biografia:
+            <textarea id="bio"
+                rows="3"
+                cols="30"
+                placeholder="Me gusta programar en la playa ..."
+                name="text">
+            </textarea>
+          </label>
+      </fieldset>
+      <!-- Boton para enviar el formulario -->
+       <input type="submit" value="Enviar">
+    </form>
+  </body>
+</html>

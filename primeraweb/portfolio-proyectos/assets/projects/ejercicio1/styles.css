@@ -1,0 +1,104 @@
+body {
+  background-image: url(https://i.pinimg.com/736x/5b/af/ed/5bafed4d0d8f647dc0a1f0d0a595c32d.jpg);
+  background-size: cover;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  padding: 20px;
+}
+
+h1,h2, p{
+text-align: center;
+color: rgb(166, 106, 106);
+}
+
+.menu{
+width: 80%;
+margin-left: auto;
+margin-right: auto;
+padding: 20px;
+max-width: 500px;
+
+}
+
+.flavour, .desserts{
+  text-align: left;
+  width: 75%;
+
+}
+
+.price{
+  text-align: right;
+  width: 25%;
+}
+
+.item{
+  display: flex;
+}
+
+.item p{
+display: inline-block;
+margin-top: 5px;
+margin-bottom: 5px;
+font-size: 18px;
+}
+
+h1,h2{
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.establised{
+font-style: italic;
+margin-top: 0%;
+margin-bottom: 15px;
+}
+
+h1{
+font-size: 40px;
+margin-top: 0%;
+margin-bottom: 15px;
+}
+
+
+h2{
+  font-size: 30px;
+}
+hr{
+  height: 2px;
+  background-color: bisque;
+  border-color: bisque;
+}
+.bottom-line{
+  margin-top: 25px;
+}
+
+
+footer{
+font-size: 14px;
+}
+a{
+  color: #000;
+}
+
+a:visited{
+  color: #000;
+}
+
+
+a:hoover{
+color: chocolate;
+}
+
+a:actibe{
+  color:chocolate;
+}
+
+.addres{
+  margin-bottom: 5px;
+}
+
+
+img{
+  display: block;
+ margin-right: auto;
+ margin-left: auto;
+ margin-top: -25px;
+}
