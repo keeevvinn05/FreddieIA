@@ -1,1 +1,24 @@
-<p>header works!</p>
+<!-- Toolbar principal con clase personalizada para estilos -->
+<p-toolbar class="app-toolbar">
+  <!-- Logo de la aplicación con alt para accesibilidad y altura fija -->
+  <img
+    src="assets/images/thinkia-removebg.png"
+    alt="Thinkia"
+    height="32"
+  />
+
+  <!-- Título de la toolbar centrado con estilos de .logo-group en CSS -->
+  <span class="toolbar-title">thinkia</span>
+
+  <!-- Botón para alternar el tema claro/oscuro -->
+  <button
+    pButton         
+    pRipple         
+    type="button"  
+    (click)="toggleTheme()"  
+  >
+    <!-- Icono y texto dinámico según el estado darkMode -->
+    {{ darkMode ? '☀️ ' : '🌙 ' }}
+  </button>
+</p-toolbar>
+
