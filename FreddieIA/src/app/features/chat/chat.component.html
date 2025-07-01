@@ -1,1 +1,60 @@
-<p>chat works!</p>
+<!-- Contenedor principal del chat con atributo aria-live para accesibilidad -->
+<div class="chat-container" aria-live="polite">
+  <!-- Tarjeta de PrimeNG que envuelve todo el chat -->
+  <p-card header="Chat con el Asistente" class="chat-card">
+    <!-- Panel con scroll para mostrar mensajes, altura ajustada al 60% de la vista -->
+    <p-scrollPanel
+      #scroll
+      [style]="{ height: '60vh' }"
+      class="chat-window"
+    >
+      <!-- Recorre el array de mensajes y renderiza cada uno -->
+      <div
+        *ngFor="let m of messages"
+        class="message"
+        [ngClass]="m.from"
+      >
+        <!-- Encabezado del mensaje con remitente y hora -->
+        <div class="message-header">
+          <!-- Muestra 'Tú' si el mensaje es del usuario, 'IA' si es de la inteligencia artificial -->
+          <strong>{{ m.from === 'user' ? 'Tú' : 'IA' }}</strong>
+          <!-- Timestamp formateado a hora corta -->
+          <span class="timestamp">
+            {{ m.timestamp | date: 'shortTime' }}
+          </span>
+        </div>
+        <!-- Cuerpo del mensaje, con soporte para markdown simple -->
+        <div class="message-body">
+          <span [innerHTML]="m.text | simpleMarkdown"></span>
+        </div>
+      </div>
+    </p-scrollPanel>
+
+    <!-- Overlay con spinner mientras se cargan respuestas -->
+    <div *ngIf="loading" class="spinner-overlay">
+      <p-progressSpinner></p-progressSpinner>
+    </div>
+
+    <!-- Área de entrada de usuario -->
+    <div class="input-area">
+      <!-- Campo de texto enlazado al modelo userInput, deshabilitado si loading -->
+      <input
+        pInputText
+        [(ngModel)]="userInput"
+        placeholder="Escribe tu mensaje"
+        [disabled]="loading"
+        (keyup.enter)="send()"
+      />
+      <!-- Botón para enviar mensaje, deshabilitado si no hay texto o está cargando -->
+      <button
+        pButton
+        type="button"
+        label="Enviar"
+        icon="pi pi-send"
+        (click)="send()"
+        [disabled]="!userInput.trim() || loading"
+      ></button>
+    </div>
+  </p-card>
+</div>
+

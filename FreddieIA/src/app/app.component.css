@@ -14,7 +14,8 @@
   align-items: flex-start;       /* Alinea los hijos al inicio vertical (parte superior) */
   padding: 1rem;                 /* Espacio interno alrededor del contenido */
   background-color: var(--bg-page); /* Color de fondo definido por la variable CSS */
-  overflow: hidden;              /* Evita scroll interno en el área principal */
+  overflow: hidden;   
+  color: rgb(233, 233, 233);           /* Evita scroll interno en el área principal */
 }
 
 /* Wrapper específico para el chat dentro del main content */
@@ -23,5 +24,6 @@
   flex-direction: column;        /* Dirección de los hijos en columna */
   width: 100%;                   /* Ancho total disponible en su contenedor */
   max-width: 600px;              /* Ancho máximo para limitar el chat en pantallas grandes */
-  height: 100%;                  /* Altura completa disponible del main-content */
+  height: 100%;  
+  color: black;                /* Altura completa disponible del main-content */
 }
